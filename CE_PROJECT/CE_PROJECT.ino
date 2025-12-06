@@ -5,8 +5,8 @@
 #define in2 27
 #define in3 32
 #define in4 33
-#define PWMPin1 22
-#define PWMPin2 23
+#define PWMPin1 34
+#define PWMPin2 35
 
 // WiFi และ MQTT Configuration
 const char* ssid = "Pak24";//CE-NextGen
@@ -25,12 +25,6 @@ void setup() {
   pinMode(in2, OUTPUT);
   pinMode(in3, OUTPUT);
   pinMode(in4, OUTPUT);
-
-  pinMode(PWMPin1, OUTPUT);
-  pinMode(PWMPin2, OUTPUT);
-
-  analogWrite(PWMPin1, 222);
-  analogWrite(PWMPin2, 222);
 
   pinMode(19, INPUT);
 

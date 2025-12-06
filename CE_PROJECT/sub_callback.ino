@@ -12,35 +12,35 @@ void callback(char *topic, byte *payload, unsigned int length) {
 
   if (strcmp(topic, topic_move) == 0){
     if(message == "front"){
-      forward();
+      Mforward();
       delay(2000);
-      // Serial.println("เดินหน้าจ่ะ");
+      stop();
+      Serial.println("เดินหน้าจ่ะ");
     }
 
     if(message == "left"){
-      left();
+      Mleft();
       delay(2000);
-      // Serial.println("เลี้ยวซ้ายจ่ะ");
+      stop();
+      Serial.println("เลี้ยวซ้ายจ่ะ");
     }
 
     if(message == "right"){
-      right();
+      Mright();
       delay(2000);
-      // Serial.println("เลี้ยวซ้ายจ่ะ");
+      stop();
+      Serial.println("เลี้ยวซ้ายจ่ะ");
     }
 
     if(message == "back"){
-      backward();
+      Mbackward();
       delay(2000);
-      // Serial.println("ถอยหลังจ่ะ");
-
+      stop();
+      Serial.println("ถอยหลังจ่ะ");
     }
 
     else{
-      digitalWrite(in1, LOW);
-      digitalWrite(in2, LOW);
-      digitalWrite(in3, LOW);
-      digitalWrite(in4, LOW);
+      stop();
 
     }
   }
