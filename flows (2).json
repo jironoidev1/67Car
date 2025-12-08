@@ -1,0 +1,228 @@
+[
+    {
+        "id": "ddc7bbca16cfa95d",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "a3e72e3f38e32b8b",
+        "type": "ui_template",
+        "z": "ddc7bbca16cfa95d",
+        "group": "c80a3cc0193bdf07",
+        "name": "",
+        "order": 9,
+        "width": 0,
+        "height": 0,
+        "format": "<style>\n    .myclass{\n        border-radius: 12px !important;\n        background-color : #000000 !important;\n    }\n    .myclass2{\n    border-radius: 999px !important;\n    background-color : red !important;\n    }\n    body{\n    background-image: url(\"/bed.png\") !important ;\n    background-size: 33% !important ;\n    background-repeat: no-repeat;\n    background-position: center;\n    }\n</style>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "global",
+        "className": "",
+        "x": 720,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "511993ec21778120",
+        "type": "ui_text",
+        "z": "ddc7bbca16cfa95d",
+        "group": "0c59155f630d2494",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "text",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "myclass",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 710,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "b4e3b7d8c1bef382",
+        "type": "ui_switch",
+        "z": "ddc7bbca16cfa95d",
+        "name": "",
+        "label": "switch",
+        "tooltip": "",
+        "group": "0c59155f630d2494",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "myclass2",
+        "x": 710,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0ffea1a2a4a4f6fa",
+        "type": "remote-access",
+        "z": "ddc7bbca16cfa95d",
+        "confignode": "e7b58fd695281e9e",
+        "name": "",
+        "verbose": 0,
+        "x": 220,
+        "y": 160,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "0d46cbf56fbba78c",
+        "type": "inject",
+        "z": "ddc7bbca16cfa95d",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "1",
+        "payloadType": "str",
+        "x": 170,
+        "y": 280,
+        "wires": [
+            [
+                "1c0a9f26aca1072e"
+            ]
+        ]
+    },
+    {
+        "id": "1c0a9f26aca1072e",
+        "type": "function",
+        "z": "ddc7bbca16cfa95d",
+        "name": "function 7",
+        "func": "var message = {\n    \"title\": \"ชื่อ\",\n    \"body\" : \"มาดูเร็วๆ 🫨🫨🫨\"\n};\n\nmsg.payload = message;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 280,
+        "wires": [
+            [
+                "e20c100a8767e08e"
+            ]
+        ]
+    },
+    {
+        "id": "e20c100a8767e08e",
+        "type": "remote-notification",
+        "z": "ddc7bbca16cfa95d",
+        "confignode": "e7b58fd695281e9e",
+        "name": "",
+        "notificationTitle": "payload.title",
+        "notificationTitleType": "msg",
+        "notificationBody": "payload.body",
+        "notificationBodyType": "msg",
+        "notificationSound": "default",
+        "notificationSoundComputed": "payload.sound",
+        "notificationSoundComputedType": "msg",
+        "output": 1,
+        "x": 470,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c80a3cc0193bdf07",
+        "type": "ui_group",
+        "name": "control",
+        "tab": "fdf790ea8f9b9116",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "0c59155f630d2494",
+        "type": "ui_group",
+        "name": "CSS_Tab",
+        "tab": "642c6b3b759d81df",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "e7b58fd695281e9e",
+        "type": "remote-config",
+        "name": "Node-RED UI",
+        "host": "localhost",
+        "protocol": "http",
+        "port": "1880",
+        "baseurl": "/ui",
+        "instancehash": "izqxhmd6iwberjmpw5wz6ff88lynvgyvuoaf0r75b1ynrahxalnzbgs56d0hsct3",
+        "server": "nodered05.remote-red.com",
+        "region": "sg"
+    },
+    {
+        "id": "fdf790ea8f9b9116",
+        "type": "ui_tab",
+        "name": "Kaipum",
+        "icon": "dashboard",
+        "order": 7,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "642c6b3b759d81df",
+        "type": "ui_tab",
+        "name": "ui",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "2af0014dadacff37",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-dashboard": "3.6.6",
+            "node-red-contrib-remote": "2.0.3"
+        }
+    }
+]
